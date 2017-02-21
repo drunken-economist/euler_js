@@ -3,9 +3,9 @@ var bigNum = "731671765313306249192251196744265747423553491949349698352031277450
 function largestProduct(lenNum){
 	var largest = 0;
 	for(i=0; i < bigNum.length-lenNum; i++){
-		thisProduct = consecProduct(lenNum, i);
-		if (thisProduct > largest){
-			largest = thisProduct;
+		var currentProd = consecProduct(lenNum, i);
+		if (currentProd > largest){
+			largest = currentProd;
 		}		
 	}
 	return largest;
@@ -13,8 +13,8 @@ function largestProduct(lenNum){
 
 function consecProduct(consec, startNum){
 	var thisProduct = 1;
-	for(i=startNum; i<startNum+consec; i++){
-		thisProduct = parseInt(bigNum[i]) * thisProduct;
+	for(var k=startNum; k<startNum+consec; k++){
+		thisProduct = parseInt(bigNum[k]) * thisProduct;
 	}
 	return thisProduct;
 }
