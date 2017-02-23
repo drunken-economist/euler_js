@@ -41,9 +41,22 @@ function horizontalMax(grid, consec){
 	return maximum;
 }
 
-function verticalMax(grid){
+function verticalMax(grid, consec){
 	var vertMax = 0;
-	for (thisCol = 0; thisCol < grid[0].length; thisCol++){
+	var vertDex = 0;
+	var horDex = 0;
+	while (horDex < grid[0].length){
+		while (vertDex < grid.length-consec){
+			var vertProduct = 1;
+			for (k=1; k<consec; k++){
+				vertProduct *= grid[vertDex+k][horDex];
+			}
+			vertDex += 1;
+		}
+		if (vertProduct > vertMax){
+			vertMax = vertProduct;
+		}
+		horDex += 1;
 	}
-	return 0;
+	return vertMax;
 }
