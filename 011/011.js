@@ -38,25 +38,30 @@ function horizontalMax(grid, consec){
 			}
 		}
 	}
+	console.log("horizontal max is "+maximum);
 	return maximum;
 }
 
 function verticalMax(grid, consec){
 	var vertMax = 0;
-	var vertDex = 0;
 	var horDex = 0;
 	while (horDex < grid[0].length){
+		var vertDex = 0;
 		while (vertDex < grid.length-consec){
 			var vertProduct = 1;
-			for (k=1; k<consec; k++){
+			for (k=0; k<consec; k++){
 				vertProduct *= grid[vertDex+k][horDex];
+			}
+			if (vertProduct > vertMax){
+				vertMax = vertProduct;
 			}
 			vertDex += 1;
 		}
-		if (vertProduct > vertMax){
-			vertMax = vertProduct;
-		}
 		horDex += 1;
 	}
+	console.log("veritcal max is "+vertMax);
 	return vertMax;
 }
+
+function diagMax(grid, consec){
+
