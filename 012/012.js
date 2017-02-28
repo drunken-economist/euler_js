@@ -1,6 +1,6 @@
 function getNumFactors(dividend){
 	var divisors = 2;
-	for(i = 2; i < dividend; i++){
+	for(i = 2; i < Math.sqrt(dividend); i++){
 		if (dividend % i == 0){
 			divisors++;
 		}
